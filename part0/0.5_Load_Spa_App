@@ -1,0 +1,16 @@
+```
+sequenceDiagram
+        participant user
+        participant browser
+        participant server
+        user->>browser: Loads the SPA URL into the browser
+        browser->>server: Get /exampleapp/spa
+        server-->>browser: 304 Not Modified
+        browser->>server: GET /exampleapp/main.css
+        server-->>browser: the CSS File
+        browser->>server: GET /exampleapp/spa.js
+        server-->>browser: the JavaScript file
+        browser->>server: GET /exampleapp/data.json
+        server-->>browser: [{ "content": "", "date": "" }, ...]
+        Note right of browser: 304 = browser uses its cached copy of the HTML
+        ```
